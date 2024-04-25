@@ -9,22 +9,22 @@ package Model;
  * @author chus
  */
 public class Membresia {
-    private int idM;
+    private String nomUsuario;
     private String fecha_alta;
     private String fecha_baja;
 
-    public Membresia(int idM, String fecha_alta, String fecha_baja) {
-        this.idM = idM;
+    public Membresia(String nomUsuario, String fecha_alta, String fecha_baja) {
+        this.nomUsuario = nomUsuario;
         this.fecha_alta = fecha_alta;
         this.fecha_baja = fecha_baja;
     }
 
-    public int getIdM() {
-        return idM;
+    public String getNomUsuario() {
+        return nomUsuario;
     }
 
-    public void setIdM(int idM) {
-        this.idM = idM;
+    public void setNomUsuario(String nomUsuario) {
+        this.nomUsuario = nomUsuario;
     }
 
     public String getFecha_alta() {
@@ -42,4 +42,6 @@ public class Membresia {
     public void setFecha_baja(String fecha_baja) {
         this.fecha_baja = fecha_baja;
     }
+
+    
 }
