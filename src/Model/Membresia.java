@@ -9,7 +9,6 @@ package Model;
  * @author chus
  */
 public class Membresia {
-    private int ejem;
     private int idM;
     private String fecha_alta;
     private String fecha_baja;
