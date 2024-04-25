@@ -4,6 +4,8 @@
  */
 package cinepolitos;
 
+import View.VMenu;
+
 /**
  *
  * @author chus
@@ -14,7 +16,8 @@ public class Cinepolitos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        VMenu vm = new VMenu();
+        vm.setVisible(true);
     }
     
 }

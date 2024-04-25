@@ -64,8 +64,6 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 180, 50));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Login.jpeg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 770));
 
         pack();

@@ -9,6 +9,7 @@ package Model;
  * @author chus
  */
 public class Cliente {
+    
     private int id_socio;
     private boolean membresia;
     private String nom_socio;

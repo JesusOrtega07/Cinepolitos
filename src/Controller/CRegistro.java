@@ -13,12 +13,12 @@ public class CRegistro implements ActionListener{
 
     public CRegistro(VRegistrarse vr) {
         this.vr = vr;
-        this.vr.jButton1.addActionListener(this);
+        this.vr.jBguardar.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(this.vr.jButton1 == ae.getSource()){
+        if(this.vr.jBguardar == ae.getSource()){
             System.out.println("yo aguardo");
             String Nom = vr.jTextField1.getText();
             String Direc = vr.jTextField2.getText();
