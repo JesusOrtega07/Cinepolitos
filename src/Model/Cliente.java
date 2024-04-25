@@ -9,26 +9,26 @@ package Model;
  * @author chus
  */
 public class Cliente {
-    private int id_socio;
+    private String nomUsuario;
     private boolean membresia;
     private String nom_socio;
     private String direc_socio;
     private String telefono;
 
-    public Cliente(int id_socio, boolean membresia, String nom_socio, String direc_socio, String telefono) {
-        this.id_socio = id_socio;
+    public Cliente(String nomUsuario, boolean membresia, String nom_socio, String direc_socio, String telefono) {
+        this.nomUsuario = nomUsuario;
         this.membresia = membresia;
         this.nom_socio = nom_socio;
         this.direc_socio = direc_socio;
         this.telefono = telefono;
     }
 
-    public int getId_socio() {
-        return id_socio;
+    public String getNomUsuario() {
+        return nomUsuario;
     }
 
-    public void setId_socio(int id_socio) {
-        this.id_socio = id_socio;
+    public void setNomUsuario(String nomUsuario) {
+        this.nomUsuario = nomUsuario;
     }
 
     public boolean isMembresia() {
@@ -62,6 +62,6 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
+    
     
 }
