@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model;
 
 /**
@@ -9,17 +6,33 @@ package Model;
  * @author chus
  */
 public class Cliente {
+    
+//    aqui no podemos crear el obj porque nos faltaria 
+//    si es miembro osea al para ingresar al usuario si tiene membresia se debe registrar
+//    pensaba hacerlo en la mismna vista pero no se puede, planeo poner esa opcion en la vista
+//    donde seleccionas las peliculas
+    
     private String nomUsuario;
-    private boolean membresia;
+    //private boolean membresia; pensando bien no puedo crear el obj
     private String nom_socio;
     private String direc_socio;
+    private String gender;
     private String telefono;
 
-    public Cliente(String nomUsuario, boolean membresia, String nom_socio, String direc_socio, String telefono) {
+//    public Cliente(String nomUsuario, boolean membresia, String nom_socio, String direc_socio, String gender, String telefono) {
+//        this.nomUsuario = nomUsuario;
+//        this.membresia = membresia;
+//        this.nom_socio = nom_socio;
+//        this.direc_socio = direc_socio;
+//        this.gender = gender;
+//        this.telefono = telefono;
+//    }
+
+    public Cliente(String nomUsuario, String nom_socio, String direc_socio, String gender, String telefono) {
         this.nomUsuario = nomUsuario;
-        this.membresia = membresia;
         this.nom_socio = nom_socio;
         this.direc_socio = direc_socio;
+        this.gender = gender;
         this.telefono = telefono;
     }
 
@@ -31,13 +44,13 @@ public class Cliente {
         this.nomUsuario = nomUsuario;
     }
 
-    public boolean isMembresia() {
-        return membresia;
-    }
-
-    public void setMembresia(boolean membresia) {
-        this.membresia = membresia;
-    }
+//    public boolean isMembresia() {
+//        return membresia;
+//    }
+//
+//    public void setMembresia(boolean membresia) {
+//        this.membresia = membresia;
+//    }
 
     public String getNom_socio() {
         return nom_socio;
@@ -62,6 +75,12 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
-    
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 }

@@ -9,6 +9,7 @@ package Model;
  * @author chus
  */
 public class Membresia {
+    
     private String nomUsuario;
     private String fecha_alta;
     private String fecha_baja;
