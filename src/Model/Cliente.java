@@ -13,6 +13,7 @@ public class Cliente {
 //    donde seleccionas las peliculas
 //    Ahora sí sabemos cómo usar git.
 //    Creando rama apartir de ramaPureba
+//    Ahora vamos hacer un stash
     
     private String nomUsuario;
     //private boolean membresia; pensando bien no puedo crear el obj
