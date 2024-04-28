@@ -12,6 +12,7 @@ public class Cliente {
 //    pensaba hacerlo en la mismna vista pero no se puede, planeo poner esa opcion en la vista
 //    donde seleccionas las peliculas
 //    Ahora sí sabemos cómo usar git.
+//    Creando rama apartir de ramaPureba
     
     private String nomUsuario;
     //private boolean membresia; pensando bien no puedo crear el obj
