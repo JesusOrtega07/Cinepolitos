@@ -11,6 +11,7 @@ public class Cliente {
 //    si es miembro osea al para ingresar al usuario si tiene membresia se debe registrar
 //    pensaba hacerlo en la mismna vista pero no se puede, planeo poner esa opcion en la vista
 //    donde seleccionas las peliculas
+//    Odio no sbaer github
     
     private String nomUsuario;
     //private boolean membresia; pensando bien no puedo crear el obj
