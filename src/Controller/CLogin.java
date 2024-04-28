@@ -26,6 +26,7 @@ public class CLogin implements ActionListener{
         if(this.vlg.jButton1 == ae.getSource()){
             String Id = vlg.jTextField1.getText();
             System.out.println("busco al cliente en la base de dato con el id que igreso es: "+Id);
+            
         }else if(this.vlg.jButton2 == ae.getSource()){
             System.out.println("mando a la vista de crear cuenta");
             VRegistrarse vr = new VRegistrarse();
