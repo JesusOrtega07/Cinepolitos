@@ -4,6 +4,8 @@
  */
 package View;
 
+import Controller.CPrincipal;
+
 /**
  *
  * @author david_alcazar
@@ -13,8 +15,11 @@ public class VPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VPrincipal
      */
+    CPrincipal cprinc;
+    
     public VPrincipal() {
         initComponents();
+        cprinc = new CPrincipal(this);
     }
 
     /**
@@ -29,6 +34,8 @@ public class VPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -39,6 +46,12 @@ public class VPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Bienvenido : ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 80, 20));
+
+        jLabel3.setText("PELICULAS DISPONIBLES ");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+
+        jButton1.setText("ser premuin?");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 440));
 
@@ -81,8 +94,10 @@ public class VPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
