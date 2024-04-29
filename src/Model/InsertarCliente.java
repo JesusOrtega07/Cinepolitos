@@ -67,6 +67,26 @@ public class InsertarCliente extends ConexionBD{
         }
         return false; // En caso de error o si no se encuentra el ID
     }
+    
+    public boolean buscarUser(String id) {
+        String sql = "SELECT COUNT(*) FROM Cliente WHERE nomUsuario = ?";
+
+        try (Connection conexion = establecerConexion();
+             PreparedStatement ps = conexion.prepareStatement(sql)) {
+            ps.setString(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0; // Devuelve true si se encontraron resultados, false en caso contrario
+                } else {
+                    return false; // No se encontraron resultados
+                }
+            }
+        } catch (SQLException e) {
+            //JOptionPane.showMessageDialog(null, "Error al realizar la búsqueda: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false; // Si ocurre un error, retornamos false
+        }
+    }
 
    
 

@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Cliente;
 import Model.InsertarCliente;
+import View.VPrincipal;
 import View.VRegistrarse;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,6 +41,9 @@ public class CRegistro implements ActionListener{
     //          aqui me refiero no tenemos el parametro de true o false 
                 cliente = new Cliente(User, Nom, Direc, Gender, Cel);
                 inser.insertarC(User, Nom, Direc, Gender, Cel);
+                VPrincipal vprin = new VPrincipal();
+                vprin.setVisible(true);
+                vprin.jLabel2.setText(User);
             }
         }
     }
