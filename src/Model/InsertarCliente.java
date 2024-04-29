@@ -23,18 +23,20 @@ public class InsertarCliente extends ConexionBD{
 //        return sql;
 //    }
 
-    public void insertarC(String nomUsuario, String nom_socio, String direccion_socio, String genero, String tel) {
+    public void insertarC(String nomUsuario, boolean membresia ,String nom_socio,String edad, String direccion_socio, String tel, String saldo) {
         try {
-            Connection conexion = establecerConexion();
-            String sql = "INSERT INTO Cliente (nomUsuario, nom_socio, direccion_socio, Gender, telefono) VALUES (?, ?, ?, ?, ?)";
+            Connection conexion = establecerConexion(); 
+            String sql = "INSERT INTO Cliente (nomUsuario, membresia ,nom_socio, edad, direccion_socio, telefono, saldo) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = conexion.prepareStatement(sql);
 
             // Establecer los parámetros en el PreparedStatement
             pst.setString(1, nomUsuario);
-            pst.setString(2, nom_socio);
-            pst.setString(3, direccion_socio);
-            pst.setString(4, genero);
+            pst.setBoolean(2, membresia);
+            pst.setString(3, nom_socio);
+            pst.setString(4, edad);
+            pst.setString(5, direccion_socio);
             pst.setString(5, tel);
+            pst.setString(5, saldo);
 
             // Ejecutar la consulta preparada
             pst.executeUpdate();
