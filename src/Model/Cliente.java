@@ -12,6 +12,7 @@ public class Cliente {
 //    pensaba hacerlo en la mismna vista pero no se puede, planeo poner esa opcion en la vista
 //    donde seleccionas las peliculas
     //este es el main
+//    Odio no sbaer github
     
     private String nomUsuario;
     //private boolean membresia; pensando bien no puedo crear el obj
