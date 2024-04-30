@@ -27,7 +27,7 @@ public class CRegistro implements ActionListener{
             String User = vr.jTextField4.getText();
             String Nom = vr.jTextField1.getText();
             String Direc = vr.jTextField2.getText();
-            //String Gender = vr.jComboBox1.getSelectedItem().toString();
+            int Edad = Integer.parseInt(this.vr.jTextField5.getText());
             String Cel = vr.jTextField3.getText();
             InsertarCliente inser = new InsertarCliente();
             
@@ -39,8 +39,8 @@ public class CRegistro implements ActionListener{
 //                System.out.println("los datos son "+User+" "+Nom+" "+Direc+" "+Gender+" "+Cel);
                 //creo al oobj socio y con los parametros
     //          aqui me refiero no tenemos el parametro de true o false 
-//                cliente = new Cliente(User, Nom, Direc, Gender, Cel);
-//                inser.insertarC(User, Nom, Direc, Gender, Cel);
+                cliente = new Cliente(User, false, Nom, Edad, Direc, Cel, 0.0);
+                inser.insertarC(cliente.getNomUsuario(), cliente.isMembresia(), cliente.getNom_socio(), cliente.getEdad(), cliente.getDirec_socio(), cliente.getTelefono(), (float) cliente.getSaldo());
                 VPrincipal vprin = new VPrincipal();
                 vprin.setVisible(true);
                 vprin.jLabel2.setText(User);

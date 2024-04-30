@@ -83,8 +83,6 @@ public class VRegistrarse extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 200, -1));
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 220, 20));
-
-        jTextField5.setText("jTextField5");
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 190, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 440));
@@ -145,6 +143,6 @@ public class VRegistrarse extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

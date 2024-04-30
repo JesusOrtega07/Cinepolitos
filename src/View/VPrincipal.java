@@ -45,7 +45,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Bienvenido : ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 80, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 120, 20));
 
         jLabel3.setText("PELICULAS DISPONIBLES ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));

@@ -23,7 +23,7 @@ public class InsertarCliente extends ConexionBD{
 //        return sql;
 //    }
 
-    public void insertarC(String nomUsuario, boolean membresia ,String nom_socio,String edad, String direccion_socio, String tel, String saldo) {
+    public void insertarC(String nomUsuario, boolean membresia ,String nom_socio,int edad, String direccion_socio, String tel, float saldo) {
         try {
             Connection conexion = establecerConexion(); 
             String sql = "INSERT INTO Cliente (nomUsuario, membresia ,nom_socio, edad, direccion_socio, telefono, saldo) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -33,10 +33,10 @@ public class InsertarCliente extends ConexionBD{
             pst.setString(1, nomUsuario);
             pst.setBoolean(2, membresia);
             pst.setString(3, nom_socio);
-            pst.setString(4, edad);
+            pst.setInt(4, edad);
             pst.setString(5, direccion_socio);
-            pst.setString(5, tel);
-            pst.setString(5, saldo);
+            pst.setString(6, tel);
+            pst.setFloat(7, saldo);
 
             // Ejecutar la consulta preparada
             pst.executeUpdate();
