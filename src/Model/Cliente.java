@@ -1,6 +1,8 @@
 
 package Model;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author chus
@@ -13,13 +15,16 @@ public class Cliente {
 //    donde seleccionas las peliculas
     //este es el main
 //    Odio no sbaer github
+    //esta es la rama prueba
+
     
     private String nomUsuario;
-    //private boolean membresia; pensando bien no puedo crear el obj
+    private boolean membresia; 
     private String nom_socio;
+    private int edad;
     private String direc_socio;
-    private String gender;
     private String telefono;
+    private double saldo;
 
 //    public Cliente(String nomUsuario, boolean membresia, String nom_socio, String direc_socio, String gender, String telefono) {
 //        this.nomUsuario = nomUsuario;
@@ -30,12 +35,14 @@ public class Cliente {
 //        this.telefono = telefono;
 //    }
 
-    public Cliente(String nomUsuario, String nom_socio, String direc_socio, String gender, String telefono) {
+    public Cliente(String nomUsuario, boolean membresia, String nom_socio, int edad, String direc_socio, String telefono, double saldo) {
         this.nomUsuario = nomUsuario;
+        this.membresia = membresia;
         this.nom_socio = nom_socio;
+        this.edad = edad;
         this.direc_socio = direc_socio;
-        this.gender = gender;
         this.telefono = telefono;
+        this.saldo = saldo;
     }
 
     public String getNomUsuario() {
@@ -46,13 +53,13 @@ public class Cliente {
         this.nomUsuario = nomUsuario;
     }
 
-//    public boolean isMembresia() {
-//        return membresia;
-//    }
-//
-//    public void setMembresia(boolean membresia) {
-//        this.membresia = membresia;
-//    }
+    public boolean isMembresia() {
+        return membresia;
+    }
+
+    public void setMembresia(boolean membresia) {
+        this.membresia = membresia;
+    }
 
     public String getNom_socio() {
         return nom_socio;
@@ -78,11 +85,19 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getGender() {
-        return gender;
+    public int getEdad() {
+        return edad;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 }
