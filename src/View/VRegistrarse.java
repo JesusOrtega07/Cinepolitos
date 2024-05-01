@@ -70,6 +70,11 @@ public class VRegistrarse extends javax.swing.JFrame {
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 200, -1));
 
         jBguardar.setText("GUARDAR");
+        jBguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBguardarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jBguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 140, 50));
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 170, -1));
 
@@ -93,6 +98,11 @@ public class VRegistrarse extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBguardarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jBguardarActionPerformed
 
     /**
      * @param args the command line arguments

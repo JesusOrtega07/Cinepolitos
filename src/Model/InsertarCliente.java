@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 /**
  *
  * @author chus
@@ -89,6 +90,75 @@ public class InsertarCliente extends ConexionBD{
             return false; // Si ocurre un error, retornamos false
         }
     }
+    
+    public Date[] insertarClienteYObtenerFechasMembresia(String idCliente) {
+        Date fechaInicio = null;
+        Date fechaFinal = null;
+
+        try {
+            Connection conexion = establecerConexion();
+
+            // Inserción del cliente en la tabla Membresia
+            String sqlInsert = "INSERT INTO Membresia (nomUsuario) VALUES (?)";
+            PreparedStatement pstInsert = conexion.prepareStatement(sqlInsert);
+            pstInsert.setString(1, idCliente);
+            pstInsert.executeUpdate();
+            pstInsert.close();
+
+            // Consulta para obtener las fechas de membresía después de la inserción
+            String sqlSelect = "SELECT fecha_alta, fecha_baja FROM Membresia WHERE nomUsuario = ?";
+            PreparedStatement pstSelect = conexion.prepareStatement(sqlSelect);
+            pstSelect.setString(1, idCliente);
+            ResultSet rs = pstSelect.executeQuery();
+
+            if (rs.next()) {
+                fechaInicio = rs.getDate("fecha_alta");
+                fechaFinal = rs.getDate("fecha_baja");
+            }
+
+            rs.close();
+            pstSelect.close();
+            // Actualización de la membresía del cliente
+            String sqlUpdate = "UPDATE Cliente SET membresia = true WHERE nomUsuario = ?";
+            PreparedStatement pstUpdate = conexion.prepareStatement(sqlUpdate);
+            pstUpdate.setString(1, idCliente);
+            pstUpdate.executeUpdate();
+            pstUpdate.close();
+            conexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Manejo de excepciones
+        }
+        // Devolver las fechas como un arreglo
+        return new Date[]{fechaInicio, fechaFinal};
+    }
+    
+        public boolean verificarMembresia(String idCliente) {
+        try {
+            Connection conexion = establecerConexion();
+
+            // Consulta para obtener el estado de la membresía del cliente
+            String sqlSelect = "SELECT membresia FROM Cliente WHERE nomUsuario = ?";
+            PreparedStatement pstSelect = conexion.prepareStatement(sqlSelect);
+            pstSelect.setString(1, idCliente);
+            ResultSet rs = pstSelect.executeQuery();
+
+            if (rs.next()) {
+                boolean tieneMembresia = rs.getBoolean("membresia");
+                return tieneMembresia;
+            }
+
+            rs.close();
+            pstSelect.close();
+            conexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Manejo de excepciones
+        }
+        // Si hubo un error o el cliente no tiene membresía, retornar false
+        return false;
+    }
+
 
    
 

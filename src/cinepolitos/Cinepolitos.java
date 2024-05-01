@@ -19,5 +19,5 @@ public class Cinepolitos {
         VMenu vm = new VMenu();
         vm.setVisible(true);
     }
-    
+
 }
