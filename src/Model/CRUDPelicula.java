@@ -4,47 +4,19 @@
  */
 package Model;
 
-import java.awt.List;
+import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author david_alcazar
  */
 public class CRUDPelicula extends ConexionBD{
-//    
-//        public DefaultTableModel MostrarDatos(){
-//         Connection conexion = establecerConexion();
-//            String sql = "SELECT * from Pelicula;";
-//            DefaultTableModel tabla1 = new DefaultTableModel();
-//             tabla1.addColumn("id_pelicula");
-//             tabla1.addColumn("id_local");
-//             tabla1.addColumn("titulo");
-//             tabla1.addColumn("genero");
-//             tabla1.addColumn("copias");
-//             try{
-//            Statement st = conexion.createStatement();
-//            ResultSet rs = st.executeQuery(sql);
-//            String [] dato = new String[5];
-//                 while(rs.next()){
-//                     dato[0] = rs.getString(1);
-//                     dato[1] = rs.getString(2);
-//                     dato[2] = rs.getString(3);
-//                     dato[3] = rs.getString(4);
-//                     dato[4] = rs.getString(5);
-//                     tabla1.addRow(dato);
-//                 }
-//             } catch (SQLException e) {
-//                 JOptionPane.showMessageDialog(null, "EL REGISTRO FALLO"+e, "MENSAJE", JOptionPane.ERROR_MESSAGE);
-//             }
-//        return tabla1;
-//    }
+
         // Método para obtener los nombres de las películas desde la base de datos
     public ArrayList<String> obtenerNombresPeliculas() {
         ArrayList<String> nombresPeliculas = new ArrayList<>();
@@ -63,5 +35,29 @@ public class CRUDPelicula extends ConexionBD{
 
         return nombresPeliculas;
     }
+    // Método para obtener información de una película específica desde la base de datos
+     public Pelicula obtenerInformacionPelicula(String nombrePelicula) {
+        Pelicula pelicula = null;
+
+        try (Connection conexion = establecerConexion();
+            PreparedStatement statement = conexion.prepareStatement("SELECT titulo, genero, copias FROM Pelicula WHERE titulo = ?")) {
+            statement.setString(1, nombrePelicula);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                String titulo = resultSet.getString("titulo");
+                String genero = resultSet.getString("genero");
+                int copias = resultSet.getInt("copias");
+
+                pelicula = new Pelicula(titulo, genero, copias);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return pelicula;
+    }
+     
+
   
 }

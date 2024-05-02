@@ -136,7 +136,6 @@ public class InsertarCliente extends ConexionBD{
         public boolean verificarMembresia(String idCliente) {
         try {
             Connection conexion = establecerConexion();
-
             // Consulta para obtener el estado de la membresía del cliente
             String sqlSelect = "SELECT membresia FROM Cliente WHERE nomUsuario = ?";
             PreparedStatement pstSelect = conexion.prepareStatement(sqlSelect);

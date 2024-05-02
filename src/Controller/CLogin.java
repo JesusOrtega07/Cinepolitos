@@ -46,9 +46,11 @@ public class CLogin implements ActionListener{
                 // Actualizar el label dependiendo si tiene membresía o no
                 if (tieneMembresia) {
                     vp.jLabel4.setText("Tiene membresía");
+                    vp.jLabel9.setText("tiene dereco a elegir 60 peliculas");
                     vp.jButton1.setEnabled(false);
                 } else {
                     vp.jLabel4.setText("No tiene membresía");
+                    vp.jLabel9.setText("precio de cada pelicula es de $25");
                 }
             }else{
                 vlg.jLabel1.setText("USUARIO NO REGISTRADO");
