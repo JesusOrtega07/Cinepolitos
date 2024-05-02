@@ -65,8 +65,8 @@ public class CRUDPelicula extends ConexionBD{
              ResultSet resultSet = statement.executeQuery();
              
              if(resultSet.next()){
-                 int id = resultSet.getInt(peli);
-                 return id;
+                int id = resultSet.getInt("Id_pelicula");
+                return id;
              }
              
          }catch (SQLException e){

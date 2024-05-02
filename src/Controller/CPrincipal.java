@@ -78,6 +78,12 @@ public class CPrincipal implements ActionListener{
             }
         }else if(this.vprin.jButton3 == ae.getSource()){
             System.out.println("yo muestro el id de las peliculas");
+            System.out.println("Yo muestro el ID de las peliculas:");
+            // Recorrer el ArrayList de películas seleccionadas y obtener sus IDs
+            for (String peliculaSeleccionada : peliculasSeleccionadas) {
+                int idPelicula = crudpeli.obtenerNombrePelicula(peliculaSeleccionada);
+                System.out.println("ID de " + peliculaSeleccionada + ": " + idPelicula);
+            }
             
         }
 
