@@ -13,7 +13,10 @@ public class Cliente {
 //    si es miembro osea al para ingresar al usuario si tiene membresia se debe registrar
 //    pensaba hacerlo en la mismna vista pero no se puede, planeo poner esa opcion en la vista
 //    donde seleccionas las peliculas
+    //este es el main
+//    Odio no sbaer github
     //esta es la rama prueba
+
     
     private String nomUsuario;
     private boolean membresia; 
