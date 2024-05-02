@@ -1,8 +1,6 @@
 
 package Model;
 
-import java.math.BigDecimal;
-
 /**
  *
  * @author chus
