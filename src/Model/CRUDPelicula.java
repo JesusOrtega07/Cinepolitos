@@ -58,6 +58,23 @@ public class CRUDPelicula extends ConexionBD{
         return pelicula;
     }
      
+     public int obtenerNombrePelicula(String peli){
+         try(Connection conexion = establecerConexion();
+                 PreparedStatement statement = conexion.prepareStatement("SELECT Id_pelicula FROM pelicula WHERE titulo = ?")){
+             statement.setString(1,peli);
+             ResultSet resultSet = statement.executeQuery();
+             
+             if(resultSet.next()){
+                 int id = resultSet.getInt(peli);
+                 return id;
+             }
+             
+         }catch (SQLException e){
+             e.printStackTrace();
+         }
+         return 0;
+     }
+     
 
   
 }

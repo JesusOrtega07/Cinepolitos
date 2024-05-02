@@ -12,6 +12,7 @@ import View.VPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,8 +20,6 @@ import java.util.ArrayList;
  */
 public class CPrincipal implements ActionListener{
 
-
-    
     VPrincipal vprin;
     private String user;
     private CRUDPelicula crudpeli;
@@ -33,6 +32,7 @@ public class CPrincipal implements ActionListener{
         this.vprin = vprin;
         this.vprin.jButton1.addActionListener(this);
         this.vprin.jButton2.addActionListener(this);
+        this.vprin.jButton3.addActionListener(this);
         this.user = user;
         this.crudpeli = new CRUDPelicula();
         this.peliculasSeleccionadas = new ArrayList<>();
@@ -43,6 +43,7 @@ public class CPrincipal implements ActionListener{
                 String opcionSeleccionada = (String) vprin.jComboBox1.getSelectedItem();
                 Pelicula pelicula = crudpeli.obtenerInformacionPelicula(opcionSeleccionada);
                 if (pelicula != null) {
+                    vprin.jSpinner1.setValue(pelicula.getCopias());
                     // Imprimir los datos de la película
                     vprin.jLabel5.setText("Título: " + pelicula.getTitulo());
                     vprin.jLabel6.setText("Copias: " + pelicula.getCopias());
@@ -75,10 +76,11 @@ public class CPrincipal implements ActionListener{
             }else{
                 agregarPeliculaSeleccionada(opc);
             }
+        }else if(this.vprin.jButton3 == ae.getSource()){
+            System.out.println("yo muestro el id de las peliculas");
             
         }
 
-        
     }
     private void agregarPeliculaSeleccionada(String peliculaSeleccionada){
         if (peliculaSeleccionada != null) {

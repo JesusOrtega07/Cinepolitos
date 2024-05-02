@@ -47,6 +47,10 @@ public class VPrincipal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,18 +63,18 @@ public class VPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 210, 20));
 
         jLabel3.setText("PELICULAS DISPONIBLES ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
-        jButton1.setText("ser premuin?");
+        jButton1.setText("SER PREMIUM");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 20, -1, 40));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 170, 20));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(985, 20, 170, 40));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 170, 20));
 
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 160, -1));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 160, -1));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 290, 30));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 290, 30));
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, 280, 40));
@@ -80,9 +84,28 @@ public class VPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 77, 330, 30));
 
         jButton2.setText("seleccionar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 150, 80));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 150, 80));
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 500));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 700, 190));
+
+        jButton3.setText("PELICULAS RENTADAS");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, 180, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,6 +154,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
     public javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
@@ -142,5 +166,8 @@ public class VPrincipal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JSpinner jSpinner1;
+    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
