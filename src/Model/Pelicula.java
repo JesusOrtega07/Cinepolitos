@@ -9,34 +9,16 @@ package Model;
  * @author chus
  */
 public class Pelicula {
-    private int idPeli;
-    private int idLocal;
     private String titulo;
-    private String genero;
+    private double precio;
     private int copias;
+    private String genero;
 
-    public Pelicula(int idPeli, int idLocal, String titulo, String genero, int copias) {
-        this.idPeli = idPeli;
-        this.idLocal = idLocal;
+    public Pelicula(String titulo, double precio, int copias, String genero) {
         this.titulo = titulo;
-        this.genero = genero;
+        this.precio = precio;
         this.copias = copias;
-    }
-
-    public int getIdPeli() {
-        return idPeli;
-    }
-
-    public void setIdPeli(int idPeli) {
-        this.idPeli = idPeli;
-    }
-
-    public int getIdLocal() {
-        return idLocal;
-    }
-
-    public void setIdLocal(int idLocal) {
-        this.idLocal = idLocal;
+        this.genero = genero;
     }
 
     public String getTitulo() {
@@ -47,12 +29,12 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public String getGenero() {
-        return genero;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     public int getCopias() {
@@ -62,4 +44,15 @@ public class Pelicula {
     public void setCopias(int copias) {
         this.copias = copias;
     }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    
+    
+
 }
