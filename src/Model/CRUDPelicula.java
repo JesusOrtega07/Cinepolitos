@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.CallableStatement;
 import java.util.ArrayList;
 
 /**
@@ -75,6 +76,43 @@ public class CRUDPelicula extends ConexionBD{
          return 0;
      }
      
+     public void rentaPelicula(String nomUsuario, int idPelicula){
+         
+     }
 
-  
+    public void depositarSaldo(String nomUsuario, int importe) {
+        try (Connection conexion = establecerConexion();
+             CallableStatement statement = conexion.prepareCall("{CALL depositarSaldo(?, ?)}")) {
+
+            statement.setString(1, nomUsuario);
+            statement.setInt(2, importe);
+
+            statement.execute();
+            System.out.println("Depostio realizado");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void pagarCuenta(String nomUsuario) {
+        try (Connection conexion = establecerConexion();
+             CallableStatement statement = conexion.prepareCall("{CALL transferirSaldoDesdeRenta(?)}")) {
+
+            statement.setString(1, nomUsuario);
+
+            statement.execute();
+            System.out.println("Cobro exitoso");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        CRUDPelicula p = new CRUDPelicula();
+        //ystem.out.println(p.obtenerInformacionPelicula("Luca"));
+        p.pagarCuenta("xxdanxx");
+    }
+
 }
+
+
