@@ -141,13 +141,28 @@ public class CRUDPelicula extends ConexionBD{
     }
 }
     
-    public int montoPagar(){
-       return 0; 
+    public double montoPagar(String nomUsuario){
+    double costoTotal = 0;
+    try (Connection conexion = establecerConexion(); PreparedStatement pStatement = conexion.prepareStatement("SELECT total_deudas FROM obtenerDeudasCliente(?)")) { 
+         pStatement.setString(1, nomUsuario);
+         ResultSet resultset = pStatement.executeQuery();
+
+         if (resultset.next()) {
+             costoTotal = resultset.getDouble("total_deudas");
+         }
+     } catch (SQLException ex) {
+        Logger.getLogger(CRUDPelicula.class.getName()).log(Level.SEVERE, null, ex);
     }
+    
+    return costoTotal; 
+}
+
+
     public static void main(String[] args) {
         CRUDPelicula p = new CRUDPelicula();
         //ystem.out.println(p.obtenerInformacionPelicula("Luca"));
-        p.rentaPelicula("xxdanxx", 5);
+        p.rentaPelicula("xxdanxx", 8);
+        System.out.println(p.montoPagar("xxdanxx"));
     }
 
 }
