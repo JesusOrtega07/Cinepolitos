@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.CallableStatement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -98,12 +100,8 @@ public class CRUDPelicula extends ConexionBD{
      ArrayList<Integer> IDs = new ArrayList<>();
      try (Connection conexion = establecerConexion();
           CallableStatement cStatement = conexion.prepareCall("{CALL transferirSaldoDesdeRenta(?)}")) {
-
-         cStatement.setString(1, nomUsuario);
-         cStatement.execute();
-         System.out.println("Cobro exitoso");
-
-         try (PreparedStatement pStatement = conexion.prepareStatement("SELECT * FROM obtenerDeudasCliente(?)")) {
+         
+         try (PreparedStatement pStatement = conexion.prepareStatement("SELECT * FROM obtenerDeudasCliente(?)")) { // Try para obtener las deudas de los clientes
              pStatement.setString(1, nomUsuario);
              ResultSet resultset = pStatement.executeQuery();
 
@@ -112,11 +110,25 @@ public class CRUDPelicula extends ConexionBD{
              }
              System.out.println(IDs);
          }
-
+         
+         cStatement.setString(1, nomUsuario);
+         cStatement.execute();
+         System.out.println("Cobro exitoso");
      } catch (SQLException e) {
          e.printStackTrace();
      }
  }
+    
+    public void liquidar(int id){
+        try (Connection conexion = establecerConexion(); CallableStatement cStatement = conexion.prepareCall("{CALL transferirSaldoDesdeRenta(?)}")){
+            
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 
     public static void main(String[] args) {
