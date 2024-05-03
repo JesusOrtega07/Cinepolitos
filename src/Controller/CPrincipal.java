@@ -11,6 +11,7 @@ import View.VRenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
@@ -40,6 +41,7 @@ public class CPrincipal implements ActionListener{
         this.vprin.jButton3.addActionListener(this);
         this.vprin.jButton4.addActionListener(this);
         this.vprin.jButton5.addActionListener(this);
+        this.vprin.jButton6.addActionListener(this);
         this.user = user;
         this.crudpeli = new CRUDPelicula();
         this.cantidadesSeleccionadas = new ArrayList<>();
@@ -103,36 +105,62 @@ public class CPrincipal implements ActionListener{
 
         }else if(this.vprin.jButton3 == ae.getSource()){
             System.out.println("yo agrego saldo");
-            // Recorrer el ArrayList de películas seleccionadas y obtener sus ID
+            // Obtén el saldo ingresado por el usuario
             vpaga = new VPagar(user);
             vpaga.setVisible(true);
-            int saldo = Integer.parseInt(this.vpaga.jTextField1.getText());
-            CRUDPelicula crudpeli = new CRUDPelicula();
-            crudpeli.depositarSaldo(user, saldo);
-//            for (String peliculaSeleccionada : peliculasSeleccionadas) {
-//                int idPelicula = crudpeli.obtenerNombrePelicula(peliculaSeleccionada);
-//                crudpeli.rentaPelicula(user, idPelicula);
-//                System.out.println("ID de " + peliculaSeleccionada + ": " + idPelicula);
-//            }
-//            double costo = crudpeli.montoPagar(user);
-//            vpagar.jLabel3.setText("USTED DEBE: "+costo);
+            String saldoStr = vpaga.jTextField1.getText();
+
+            // Verifica si se ingresó un valor en el campo de texto
+            if (!saldoStr.isEmpty()) {
+                // Intenta convertir el saldo a un entero
+                try {
+                    int saldo = Integer.parseInt(saldoStr);
+
+                    // Realiza la operación de depósito de saldo
+                    crudpeli = new CRUDPelicula();
+                    crudpeli.depositarSaldo(user, saldo);
+
+                    // Cierra la ventana de pago
+                    vpaga.dispose();
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "El saldo ingresado no es válido", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Debes ingresar un saldo", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+//            vpaga = new VPagar(user);
+//            vpaga.setVisible(true);
+//            int saldo = Integer.parseInt(this.vpaga.jTextField1.getText());
+//            crudpeli = new CRUDPelicula();
+//            crudpeli.depositarSaldo(user, saldo);
         }else if(this.vprin.jButton4 == ae.getSource()){
             System.out.println("yo elimino ");
-                // Eliminar el último elemento de las listas
-                eliminarUltimoElemento(peliculasSeleccionadas);
-                eliminarUltimoElemento(cantidadesSeleccionadas);
-                // Crear una nueva tabla con las listas actualizadas
-                JTable tabla = crearTabla(peliculasSeleccionadas, cantidadesSeleccionadas);
-                // Asignar el nuevo modelo de tabla al componente jTable1
-                vprin.jTable1.setModel(tabla.getModel());
+            // Eliminar el último elemento de las listas
+            eliminarUltimoElemento(peliculasSeleccionadas);
+            eliminarUltimoElemento(cantidadesSeleccionadas);
+            // Crear una nueva tabla con las listas actualizadas
+            JTable tabla = crearTabla(peliculasSeleccionadas, cantidadesSeleccionadas);
+            // Asignar el nuevo modelo de tabla al componente jTable1
+            vprin.jTable1.setModel(tabla.getModel());
         }else if(this.vprin.jButton5 == ae.getSource()){
             System.out.println("yo mando a la venta de renta y muestro las rentas");
             crudpeli = new CRUDPelicula();
-            VRenta vrenta = new VRenta();
+            VRenta vrenta = new VRenta(user);
             vrenta.setVisible(true);
+            vrenta.jLabel2.setText(user);
             DefaultTableModel tabla = crudpeli.mostrarDatos(user);
             vrenta.jTable1.setModel(tabla);
+            double costo = crudpeli.montoPagar(user);
+            vrenta.jLabel3.setText("USTED DEBE: "+costo);
             
+        }else if(this.vprin.jButton6 == ae.getSource()){
+            System.out.println("yo rento");
+            for (String peliculaSeleccionada : peliculasSeleccionadas) {
+                int idPelicula = crudpeli.obtenerNombrePelicula(peliculaSeleccionada);
+                crudpeli.rentaPelicula(user, idPelicula);
+                System.out.println("ID de " + peliculaSeleccionada + ": " + idPelicula);
+            }
+
         }
     }
     ///////METODOS///////////////////7
