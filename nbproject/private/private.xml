@@ -4,19 +4,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Model/InsertarCliente.java</file>
+            <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/View/VRenta.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Model/Pelicula.java</file>
+            <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/View/VPagar.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/View/VPrincipal.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Controller/CPrincipal.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Controller/CPremium.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/View/VRegistrarse.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/cinepolitos/Cinepolitos.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Controller/CLogin.java</file>
-            <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Controller/CMenu.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Model/ConexionBD.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Model/Cliente.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/View/VPremiun.java</file>
-            <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/View/VMenu.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Model/CRUDPelicula.java</file>
+            <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/View/VMenu.java</file>
+            <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Controller/CPagar.java</file>
             <file>file:/home/david_alcazar/Documentos/JavaProyectos/Cinepolitos/Cinepolitos/src/Controller/CRegistro.java</file>
         </group>
     </open-files>

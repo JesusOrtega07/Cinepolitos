@@ -150,4 +150,3 @@ public class CRUDPelicula extends ConexionBD{
     }
 
 }
-

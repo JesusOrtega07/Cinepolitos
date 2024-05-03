@@ -32,7 +32,7 @@ public class CPagar implements ActionListener{
             System.out.println("yo mando a la vista de agregar saldo"+idUsuario);
             int saldo = Integer.parseInt(this.vpagar.jTextField1.getText());
             CRUDPelicula crudpeli = new CRUDPelicula();
-            crudpeli.depositaraldo(idUsuario, saldo);
+            crudpeli.depositarSaldo(idUsuario, saldo);
         }
     }
     
