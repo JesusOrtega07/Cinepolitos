@@ -150,6 +150,10 @@ public class CPrincipal implements ActionListener{
             vrenta.jLabel2.setText(user);
             DefaultTableModel tabla = crudpeli.mostrarDatos(user);
             vrenta.jTable1.setModel(tabla);
+            peliculasSeleccionadas.clear();
+            cantidadesSeleccionadas.clear();
+            JTable tabla1 = crearTabla(peliculasSeleccionadas, cantidadesSeleccionadas);
+            vprin.jTable1.setModel(tabla1.getModel());
             double costo = crudpeli.montoPagar(user);
             vrenta.jLabel3.setText("USTED DEBE: "+costo);
             

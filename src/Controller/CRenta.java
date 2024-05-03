@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.CRUDPelicula;
+import View.VPrincipal;
 import View.VRenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
