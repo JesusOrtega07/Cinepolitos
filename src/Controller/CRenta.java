@@ -8,6 +8,7 @@ import Model.CRUDPelicula;
 import View.VRenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,8 +38,9 @@ public class CRenta implements ActionListener{
         }else if(this.vrenta.jButton2 == ae.getSource()){
             System.out.println("yo realizo el pago");
             CRUDPelicula crudpeli = new CRUDPelicula();
-            crudpeli.liquidar(0);
-
+            crudpeli.pagarCuenta(idUsuario);
+            DefaultTableModel tabla = crudpeli.mostrarDatos(idUsuario);
+            vrenta.jTable1.setModel(tabla);
         }
     }
     
