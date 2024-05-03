@@ -14,7 +14,7 @@ public class ConexionBD {
     Connection connection = null;// Después de establecer la conexión, la variable 'connection' apuntará a la conexión real.
     
     String usuario = "postgres";//creamos una variable que contenga una cadena del nombre del usuario
-    String contraseña = "puma99912";//creamos una variable que cotenga una cadena la contraseña 
+    String contraseña = "chivas1234";//creamos una variable que cotenga una cadena la contraseña 
     String bd = "cinepolitos";//creamos una variable que cotenga una cadena el nombre de la base de datos
     String ip = "localhost";//creamos una variable que cotenga una cadena de la IP
     String puerto = "5432";//creamos una variable que cotenga una cadena del puerto
