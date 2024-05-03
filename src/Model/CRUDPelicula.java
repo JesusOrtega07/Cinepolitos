@@ -79,7 +79,13 @@ public class CRUDPelicula extends ConexionBD{
      }
      
      public void rentaPelicula(String nomUsuario, int idPelicula){
-         
+         try (Connection conexion = establecerConexion(); CallableStatement cStatement = conexion.prepareCall("{CALL rentar_pelicula(?, ?)}")){
+             cStatement.setString(1, nomUsuario);
+             cStatement.setInt(2, idPelicula);
+             cStatement.execute();
+         } catch (SQLException ex) {
+            Logger.getLogger(CRUDPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
      }
 
     public void depositarSaldo(String nomUsuario, int importe) { // Metodo creado para agregar salfo a la cuenta del usaurio
@@ -96,7 +102,7 @@ public class CRUDPelicula extends ConexionBD{
         }
     }
     
-    public void pagarCuenta(String nomUsuario) {
+    public void pagarCuenta(String nomUsuario) { // Metodo para 
      ArrayList<Integer> IDs = new ArrayList<>();
      try (Connection conexion = establecerConexion();
           CallableStatement cStatement = conexion.prepareCall("{CALL transferirSaldoDesdeRenta(?)}")) {
@@ -114,27 +120,32 @@ public class CRUDPelicula extends ConexionBD{
          cStatement.setString(1, nomUsuario);
          cStatement.execute();
          System.out.println("Cobro exitoso");
+         
+         for (int id: IDs){
+             liquidar(id);
+         }
+         
      } catch (SQLException e) {
          e.printStackTrace();
      }
  }
     
-    public void liquidar(int id){
-        try (Connection conexion = establecerConexion(); CallableStatement cStatement = conexion.prepareCall("{CALL transferirSaldoDesdeRenta(?)}")){
-            
-            
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(CRUDPelicula.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void liquidar(int id_renta){
+    try (Connection conexion = establecerConexion(); CallableStatement cStatement = conexion.prepareCall("{CALL liquidar_renta(?)}")){
+        cStatement.setInt(1, id_renta);
+        cStatement.execute();
+        
+    } catch (SQLException ex) {
+        Logger.getLogger(CRUDPelicula.class.getName()).log(Level.SEVERE, null, ex);
     }
+}
+
 
 
     public static void main(String[] args) {
         CRUDPelicula p = new CRUDPelicula();
         //ystem.out.println(p.obtenerInformacionPelicula("Luca"));
-        p.pagarCuenta("xxdanxx");
+        p.rentaPelicula("xxdanxx", 5);
     }
 
 }
