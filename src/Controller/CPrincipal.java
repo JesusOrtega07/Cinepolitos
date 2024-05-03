@@ -9,6 +9,7 @@ import View.VPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JTable;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
@@ -23,9 +24,10 @@ public class CPrincipal implements ActionListener{
     private String user;
     private CRUDPelicula crudpeli;
     private ArrayList<String> peliculasSeleccionadas;
+    ArrayList<Integer> cantidadesSeleccionadas ;
     private double costoTotal;
     String opc;
-    DefaultTableModel modeloTabla;
+    //DefaultTableModel modeloTabla;
     //obtengo el id por medio del constructor
     
     public CPrincipal(VPrincipal vprin,String user) {
@@ -36,6 +38,7 @@ public class CPrincipal implements ActionListener{
         this.vprin.jButton4.addActionListener(this);
         this.user = user;
         this.crudpeli = new CRUDPelicula();
+        this.cantidadesSeleccionadas = new ArrayList<>();
         this.peliculasSeleccionadas = new ArrayList<>();
         this.costoTotal = 0.0;
             // Inicializar el SpinnerModel con un valor inicial de 0
@@ -47,13 +50,12 @@ public class CPrincipal implements ActionListener{
                 String opcionSeleccionada = (String) vprin.jComboBox1.getSelectedItem();
                 Pelicula pelicula = crudpeli.obtenerInformacionPelicula(opcionSeleccionada);
                 if (pelicula != null) {
-                // Actualizar el rango máximo del SpinnerModel con la cantidad de copias disponibles
-                SpinnerNumberModel spinnerNumberModel = (SpinnerNumberModel) vprin.jSpinner1.getModel();
-                spinnerNumberModel.setMaximum(pelicula.getCopias());
-
-                // Establecer el valor del JSpinner en 0
-                vprin.jSpinner1.setValue(0);
-                    // Imprimir los datos de la película
+                    // Actualizar el rango máximo del SpinnerModel con la cantidad de copias disponibles
+                    SpinnerNumberModel spinnerNumberModel = (SpinnerNumberModel) vprin.jSpinner1.getModel();
+                    spinnerNumberModel.setMaximum(pelicula.getCopias());
+                    // Establecer el valor del JSpinner en 0
+                    vprin.jSpinner1.setValue(0);
+                        // Imprimir los datos de la película
                     vprin.jLabel5.setText("Título: " + pelicula.getTitulo());
                     vprin.jLabel6.setText("Copias: " + pelicula.getCopias());
                     vprin.jLabel7.setText("Género: " + pelicula.getGenero());
@@ -77,40 +79,24 @@ public class CPrincipal implements ActionListener{
             vprin.setVisible(false);
         }else if(this.vprin.jButton2== ae.getSource()){
             System.out.println("yo agurdo las peliculas en un arraylist");
-            modeloTabla = new DefaultTableModel();
-            modeloTabla.addColumn("Título");
-            modeloTabla.addColumn("Género");
-            modeloTabla.addColumn("Copias");
             InsertarCliente insertc = new InsertarCliente();
             boolean tieneMembresia = insertc.verificarMembresia(user);
-            if (tieneMembresia){
-                opc = (String) vprin.jComboBox1.getSelectedItem();
-                premium(opc);
-             // Llenar el modelo con las películas seleccionadas
-             // Obtener el valor actual del JSpinner
+            opc = (String) vprin.jComboBox1.getSelectedItem();
             int cantidadSeleccionada = (int) vprin.jSpinner1.getValue();
-            for (String peliculaSeleccionada : peliculasSeleccionadas) {
-                Pelicula pelicula = crudpeli.obtenerInformacionPelicula(peliculaSeleccionada);
-                if (pelicula != null) {
-                    modeloTabla.addRow(new Object[]{pelicula.getTitulo(), pelicula.getGenero(), cantidadSeleccionada});
-                }
-            }
-
-            // Establecer el modelo de tabla en la interfaz de usuario
-            vprin.jTable1.setModel(modeloTabla);
+            if (tieneMembresia){
+                System.out.println("tienes membresia");
+                peliculasSeleccionadas = premium(opc);
+                cantidadesSeleccionadas.add(cantidadSeleccionada);//este es el array chido
+                JTable tabla = crearTabla(peliculasSeleccionadas, cantidadesSeleccionadas);
+                vprin.jTable1.setModel(tabla.getModel());
             }else{
-                agregarPeliculaSeleccionada(opc);
-                            // Llenar el modelo con las películas seleccionadas
-            for (String peliculaSeleccionada : peliculasSeleccionadas) {
-                Pelicula pelicula = crudpeli.obtenerInformacionPelicula(peliculaSeleccionada);
-                if (pelicula != null) {
-                    modeloTabla.addRow(new Object[]{pelicula.getTitulo(), pelicula.getGenero(), pelicula.getCopias()});
-                }
+                System.out.println("no tienes membresia");
+                peliculasSeleccionadas = agregarPeliculaSeleccionada(opc, cantidadSeleccionada);
+                cantidadesSeleccionadas.add(cantidadSeleccionada);//este es el array chido
+                JTable tabla = crearTabla(peliculasSeleccionadas, cantidadesSeleccionadas);
+                vprin.jTable1.setModel(tabla.getModel());
             }
 
-            // Establecer el modelo de tabla en la interfaz de usuario
-            vprin.jTable1.setModel(modeloTabla);
-            }
         }else if(this.vprin.jButton3 == ae.getSource()){
             System.out.println("yo muestro el id de las peliculas");
             // Recorrer el ArrayList de películas seleccionadas y obtener sus ID
@@ -120,47 +106,69 @@ public class CPrincipal implements ActionListener{
             }
         }else if(this.vprin.jButton4 == ae.getSource()){
             System.out.println("yo elimino la pelicula seleccionada");
-            eliminarUltimoElemento(peliculasSeleccionadas);
-           // Limpiar el modelo de la tabla antes de volver a llenarlo
-           int cantidadSeleccionada = (int) vprin.jSpinner1.getValue();
-            modeloTabla.setRowCount(0);
-
-            for (String peliculaSeleccionada : peliculasSeleccionadas) {
-                Pelicula pelicula = crudpeli.obtenerInformacionPelicula(peliculaSeleccionada);
-                if (pelicula != null) {
-                    // Agregar las filas actualizadas con los datos correctos
-                    modeloTabla.addRow(new Object[]{pelicula.getTitulo(), pelicula.getGenero(), cantidadSeleccionada});
-                }
-            }
-
-            // Establecer el modelo de tabla actualizado en la interfaz de usuario
-            vprin.jTable1.setModel(modeloTabla);
         }
     }
-    private void agregarPeliculaSeleccionada(String peliculaSeleccionada){
+    ///////METODOS///////////////////7
+    
+    
+    
+    
+    
+    private ArrayList<String> agregarPeliculaSeleccionada(String peliculaSeleccionada, int cantidadSeleccionada) {
         if (peliculaSeleccionada != null) {
-            peliculasSeleccionadas.add(peliculaSeleccionada);
-            costoTotal += 5.0;
+            // Multiplicar el costo por la cantidad de películas seleccionadas
+            costoTotal += 5.0 * cantidadSeleccionada;
             System.out.println("Costo Total: $" + costoTotal);
+            // Agregar la película seleccionada al ArrayList
+            peliculasSeleccionadas.add(peliculaSeleccionada);
         }
-            
-     }
-        private void premium(String peliculaSeleccionada){
+        return peliculasSeleccionadas;
+    }
+
+
+    private ArrayList<String> premium(String peliculaSeleccionada) {
         if (peliculaSeleccionada != null) {
             peliculasSeleccionadas.add(peliculaSeleccionada);
-             if (peliculasSeleccionadas.size() > 60) {
-            System.out.println("Se ha alcanzado el límite máximo de películas permitidas.");
-            costoTotal += 5.0;
-            System.out.println("Costo Total: $" + costoTotal);
+            if (peliculasSeleccionadas.size() > 60) {
+                System.out.println("Se ha alcanzado el límite máximo de películas permitidas.");
+                costoTotal += 5.0;
+                System.out.println("Costo Total: $" + costoTotal);
             }
         }
+        return peliculasSeleccionadas;
     }
+
         
         // Método para eliminar el último elemento de la lista
         public void eliminarUltimoElemento(ArrayList<String> lista) {
             if (!lista.isEmpty()) {
                 lista.remove(lista.size() - 1);
             }
+        }
+        
+        
+        public JTable crearTabla(ArrayList<String> peliculasSeleccionadas, ArrayList<Integer> cantidadesSeleccionadas) {
+            DefaultTableModel modeloTabla = new DefaultTableModel();
+
+            // Agregar las columnas fijas
+            modeloTabla.addColumn("Título");
+            modeloTabla.addColumn("Género");
+            modeloTabla.addColumn("Cantidad");
+
+            // Llenar el modelo con las películas seleccionadas y la cantidad seleccionada
+                    System.out.println("Tamaño peliculas: "+peliculasSeleccionadas.size()+"Cantidades:"+cantidadesSeleccionadas.size());
+            for (int i = 0; i < peliculasSeleccionadas.size(); i++) {
+                String peliculaSeleccionada = peliculasSeleccionadas.get(i);
+                int cantidadSeleccionada = cantidadesSeleccionadas.get(i);
+                Pelicula pelicula = crudpeli.obtenerInformacionPelicula(peliculaSeleccionada);
+                if (pelicula != null) {
+                    modeloTabla.addRow(new Object[]{pelicula.getTitulo(), pelicula.getGenero(), cantidadSeleccionada});
+                }
+            }
+
+            // Crear la tabla con el modelo configurado
+            JTable tabla = new JTable(modeloTabla);
+            return tabla;
         }
 
 }
