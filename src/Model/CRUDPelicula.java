@@ -103,7 +103,7 @@ public class CRUDPelicula extends ConexionBD{
         }
     }
     
-    public void pagarCuenta(String nomUsuario) { // Metodo para 
+    public void pagarCuenta(String nomUsuario) { // Metodo para  pagar la cuenta del usuario, liquida todas sus deudas
      ArrayList<Integer> IDs = new ArrayList<>();
      try (Connection conexion = establecerConexion();
           CallableStatement cStatement = conexion.prepareCall("{CALL transferirSaldoDesdeRenta(?)}")) {
@@ -140,9 +140,10 @@ public class CRUDPelicula extends ConexionBD{
         Logger.getLogger(CRUDPelicula.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
-
-
-
+    
+    public int montoPagar(){
+       return 0; 
+    }
     public static void main(String[] args) {
         CRUDPelicula p = new CRUDPelicula();
         //ystem.out.println(p.obtenerInformacionPelicula("Luca"));
