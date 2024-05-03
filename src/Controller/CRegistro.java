@@ -3,7 +3,6 @@ package Controller;
 import Model.CRUDPelicula;
 import Model.Cliente;
 import Model.InsertarCliente;
-import View.VPremiun;
 import View.VPrincipal;
 import View.VRegistrarse;
 import java.awt.event.ActionEvent;
