@@ -111,7 +111,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 200, 40));
 
         jButton5.setText("VER LAS RENTAS");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 80, 170, 40));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 80, 160, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 500));
 

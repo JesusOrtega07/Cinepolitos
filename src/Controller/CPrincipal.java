@@ -4,6 +4,7 @@ package Controller;
 import Model.CRUDPelicula;
 import Model.InsertarCliente;
 import Model.Pelicula;
+import View.VPagar;
 import View.VPremiun;
 import View.VPrincipal;
 import View.VRenta;
@@ -100,14 +101,16 @@ public class CPrincipal implements ActionListener{
             }
 
         }else if(this.vprin.jButton3 == ae.getSource()){
-            System.out.println("yo muestro el id de las peliculas");
+            System.out.println("yo muestro el id de las peliculas y pago");
             // Recorrer el ArrayList de películas seleccionadas y obtener sus ID
+            VPagar vpagar = new VPagar(user);
+            vpagar.setVisible(true);
             for (String peliculaSeleccionada : peliculasSeleccionadas) {
                 int idPelicula = crudpeli.obtenerNombrePelicula(peliculaSeleccionada);
                 System.out.println("ID de " + peliculaSeleccionada + ": " + idPelicula);
             }
         }else if(this.vprin.jButton4 == ae.getSource()){
-            System.out.println("yo elimino la pelicula seleccionada");
+            System.out.println("yo elimino ");
                 // Eliminar el último elemento de las listas
                 eliminarUltimoElemento(peliculasSeleccionadas);
                 eliminarUltimoElemento(cantidadesSeleccionadas);
