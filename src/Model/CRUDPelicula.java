@@ -80,7 +80,7 @@ public class CRUDPelicula extends ConexionBD{
          
      }
 
-    public void depositarSaldo(String nomUsuario, int importe) {
+    public void depositarSaldo(String nomUsuario, int importe) { // Metodo creado para agregar salfo a la cuenta del usaurio
         try (Connection conexion = establecerConexion();
              CallableStatement statement = conexion.prepareCall("{CALL depositarSaldo(?, ?)}")) {
 
@@ -95,17 +95,29 @@ public class CRUDPelicula extends ConexionBD{
     }
     
     public void pagarCuenta(String nomUsuario) {
-        try (Connection conexion = establecerConexion();
-             CallableStatement statement = conexion.prepareCall("{CALL transferirSaldoDesdeRenta(?)}")) {
+     ArrayList<Integer> IDs = new ArrayList<>();
+     try (Connection conexion = establecerConexion();
+          CallableStatement cStatement = conexion.prepareCall("{CALL transferirSaldoDesdeRenta(?)}")) {
 
-            statement.setString(1, nomUsuario);
+         cStatement.setString(1, nomUsuario);
+         cStatement.execute();
+         System.out.println("Cobro exitoso");
 
-            statement.execute();
-            System.out.println("Cobro exitoso");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+         try (PreparedStatement pStatement = conexion.prepareStatement("SELECT * FROM obtenerDeudasCliente(?)")) {
+             pStatement.setString(1, nomUsuario);
+             ResultSet resultset = pStatement.executeQuery();
+
+             while (resultset.next()) {
+                 IDs.add(resultset.getInt("id_renta"));
+             }
+             System.out.println(IDs);
+         }
+
+     } catch (SQLException e) {
+         e.printStackTrace();
+     }
+ }
+
 
     public static void main(String[] args) {
         CRUDPelicula p = new CRUDPelicula();
