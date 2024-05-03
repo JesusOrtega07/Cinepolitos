@@ -13,6 +13,8 @@ import java.sql.CallableStatement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -141,13 +143,60 @@ public class CRUDPelicula extends ConexionBD{
     }
 }
     
-    public int montoPagar(){
-       return 0; 
+    public double montoPagar(String nomUsuario){
+    double costoTotal = 0;
+    try (Connection conexion = establecerConexion(); PreparedStatement pStatement = conexion.prepareStatement("SELECT total_deudas FROM obtenerDeudasCliente(?)")) { 
+         pStatement.setString(1, nomUsuario);
+         ResultSet resultset = pStatement.executeQuery();
+
+         if (resultset.next()) {
+             costoTotal = resultset.getDouble("total_deudas");
+         }
+     } catch (SQLException ex) {
+        Logger.getLogger(CRUDPelicula.class.getName()).log(Level.SEVERE, null, ex);
     }
+    
+    return costoTotal; 
+}
+   public DefaultTableModel mostrarDatos(String id) {
+    Connection conexion = establecerConexion();
+    DefaultTableModel tabla = new DefaultTableModel();
+    tabla.addColumn("id_renta");
+    tabla.addColumn("titulo_pelicula");
+    tabla.addColumn("monto_adeudado");
+    tabla.addColumn("total_deudas");
+
+    try {
+        PreparedStatement pStatement = conexion.prepareStatement("SELECT * FROM obtenerDeudasCliente(?)");
+        pStatement.setString(1, id);
+        ResultSet rs = pStatement.executeQuery();
+
+        while (rs.next()) {
+            String idRenta = rs.getString("id_renta");
+            String tituloPelicula = rs.getString("titulo_pelicula");
+            String montoAdeudado = rs.getString("monto_adeudado");
+            String totalDeudas = rs.getString("total_deudas");
+
+            tabla.addRow(new Object[]{idRenta, tituloPelicula, montoAdeudado, totalDeudas});
+        }
+
+        rs.close();
+        pStatement.close();
+        conexion.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al obtener datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    return tabla;
+}
+
+
+
     public static void main(String[] args) {
         CRUDPelicula p = new CRUDPelicula();
         //ystem.out.println(p.obtenerInformacionPelicula("Luca"));
-        p.rentaPelicula("xxdanxx", 5);
+        p.rentaPelicula("xxdanxx", 8);
+        System.out.println(p.montoPagar("xxdanxx"));
     }
 
 }

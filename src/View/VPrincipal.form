@@ -238,14 +238,14 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="PAGAR"/>
+            <Property name="text" type="java.lang.String" value="AGREGAR SALDO"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="390" width="200" height="40"/>
+              <AbsoluteConstraints x="980" y="80" width="170" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -258,7 +258,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="990" y="80" width="160" height="40"/>
+              <AbsoluteConstraints x="10" y="390" width="200" height="40"/>
             </Constraint>
           </Constraints>
         </Component>

@@ -23,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class CPrincipal implements ActionListener{
 
     VPrincipal vprin;
+    VPagar vpaga;
     private String user;
     private CRUDPelicula crudpeli;
     private ArrayList<String> peliculasSeleccionadas;
@@ -101,15 +102,20 @@ public class CPrincipal implements ActionListener{
             }
 
         }else if(this.vprin.jButton3 == ae.getSource()){
-            System.out.println("yo muestro el id de las peliculas y pago");
+            System.out.println("yo agrego saldo");
             // Recorrer el ArrayList de películas seleccionadas y obtener sus ID
-            VPagar vpagar = new VPagar(user);
-            vpagar.setVisible(true);
-            for (String peliculaSeleccionada : peliculasSeleccionadas) {
-                int idPelicula = crudpeli.obtenerNombrePelicula(peliculaSeleccionada);
-                crudpeli.rentaPelicula(user, idPelicula);
-                System.out.println("ID de " + peliculaSeleccionada + ": " + idPelicula);
-            }
+            vpaga = new VPagar(user);
+            vpaga.setVisible(true);
+            int saldo = Integer.parseInt(this.vpaga.jTextField1.getText());
+            CRUDPelicula crudpeli = new CRUDPelicula();
+            crudpeli.depositarSaldo(user, saldo);
+//            for (String peliculaSeleccionada : peliculasSeleccionadas) {
+//                int idPelicula = crudpeli.obtenerNombrePelicula(peliculaSeleccionada);
+//                crudpeli.rentaPelicula(user, idPelicula);
+//                System.out.println("ID de " + peliculaSeleccionada + ": " + idPelicula);
+//            }
+//            double costo = crudpeli.montoPagar(user);
+//            vpagar.jLabel3.setText("USTED DEBE: "+costo);
         }else if(this.vprin.jButton4 == ae.getSource()){
             System.out.println("yo elimino ");
                 // Eliminar el último elemento de las listas
@@ -120,9 +126,12 @@ public class CPrincipal implements ActionListener{
                 // Asignar el nuevo modelo de tabla al componente jTable1
                 vprin.jTable1.setModel(tabla.getModel());
         }else if(this.vprin.jButton5 == ae.getSource()){
-            System.out.println("yo mando a la venta de renta");
+            System.out.println("yo mando a la venta de renta y muestro las rentas");
+            crudpeli = new CRUDPelicula();
             VRenta vrenta = new VRenta();
             vrenta.setVisible(true);
+            DefaultTableModel tabla = crudpeli.mostrarDatos(user);
+            vrenta.jTable1.setModel(tabla);
             
         }
     }
@@ -168,7 +177,6 @@ public class CPrincipal implements ActionListener{
         
         public JTable crearTabla(ArrayList<String> peliculasSeleccionadas, ArrayList<Integer> cantidadesSeleccionadas) {
             DefaultTableModel modeloTabla = new DefaultTableModel();
-
             // Agregar las columnas fijas
             modeloTabla.addColumn("Título");
             modeloTabla.addColumn("Género");

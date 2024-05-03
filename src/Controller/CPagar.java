@@ -20,6 +20,7 @@ public class CPagar implements ActionListener{
         this.vpagar = vpagar;
         this.idUsuario = idUsuario;
         this.vpagar.jButton1.addActionListener(this);
+        this.vpagar.jButton.addActionListener(this);
     }
     
     public CPagar(String idUsuario) {
@@ -33,6 +34,11 @@ public class CPagar implements ActionListener{
             int saldo = Integer.parseInt(this.vpagar.jTextField1.getText());
             CRUDPelicula crudpeli = new CRUDPelicula();
             crudpeli.depositarSaldo(idUsuario, saldo);
+        }else if(this.vpagar.jButton == ae.getSource()){
+            System.out.println("yo regreso");
+            vpagar.dispose();
+//            CRUDPelicula crudpeli = new CRUDPelicula();
+//            crudpeli.pagarCuenta(idUsuario);
         }
     }
     
