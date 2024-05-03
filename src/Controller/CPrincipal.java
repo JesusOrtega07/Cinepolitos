@@ -107,6 +107,7 @@ public class CPrincipal implements ActionListener{
             vpagar.setVisible(true);
             for (String peliculaSeleccionada : peliculasSeleccionadas) {
                 int idPelicula = crudpeli.obtenerNombrePelicula(peliculaSeleccionada);
+                crudpeli.rentaPelicula(user, idPelicula);
                 System.out.println("ID de " + peliculaSeleccionada + ": " + idPelicula);
             }
         }else if(this.vprin.jButton4 == ae.getSource()){
