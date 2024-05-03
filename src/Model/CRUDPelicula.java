@@ -40,16 +40,17 @@ public class CRUDPelicula extends ConexionBD{
         Pelicula pelicula = null;
 
         try (Connection conexion = establecerConexion();
-            PreparedStatement statement = conexion.prepareStatement("SELECT titulo, genero, copias FROM Pelicula WHERE titulo = ?")) {
+            PreparedStatement statement = conexion.prepareStatement("SELECT titulo, genero, precio, copias FROM Pelicula WHERE titulo = ?")) {
             statement.setString(1, nombrePelicula);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
                 String titulo = resultSet.getString("titulo");
                 String genero = resultSet.getString("genero");
+                double precio = resultSet.getDouble("precio");
                 int copias = resultSet.getInt("copias");
 
-                pelicula = new Pelicula(titulo, genero, copias);
+                pelicula = new Pelicula(titulo, precio, copias, genero);
             }
         } catch (SQLException e) {
             e.printStackTrace();

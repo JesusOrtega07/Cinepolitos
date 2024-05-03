@@ -10,23 +10,27 @@ package Model;
  */
 public class Pelicula {
     private String titulo;
-//    private double precio;
+    private double precio;
     private String genero;
     private int copias;
 
 
-//    public Pelicula(String titulo, double precio, int copias, String genero) {
-//        this.titulo = titulo;
-//        this.precio = precio;
-//        this.copias = copias;
-//        this.genero = genero;
-//    }
-
-    public Pelicula(String titulo, String genero, int copias) {
+    public Pelicula(String titulo, double precio, int copias, String genero) {
         this.titulo = titulo;
-        this.genero = genero;
+        this.precio = precio;
         this.copias = copias;
+        this.genero = genero;
     }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    
+
 
     public String getTitulo() {
         return titulo;

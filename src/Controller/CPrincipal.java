@@ -6,6 +6,7 @@ import Model.InsertarCliente;
 import Model.Pelicula;
 import View.VPremiun;
 import View.VPrincipal;
+import View.VRenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class CPrincipal implements ActionListener{
         this.vprin.jButton2.addActionListener(this);
         this.vprin.jButton3.addActionListener(this);
         this.vprin.jButton4.addActionListener(this);
+        this.vprin.jButton5.addActionListener(this);
         this.user = user;
         this.crudpeli = new CRUDPelicula();
         this.cantidadesSeleccionadas = new ArrayList<>();
@@ -106,6 +108,18 @@ public class CPrincipal implements ActionListener{
             }
         }else if(this.vprin.jButton4 == ae.getSource()){
             System.out.println("yo elimino la pelicula seleccionada");
+                // Eliminar el último elemento de las listas
+                eliminarUltimoElemento(peliculasSeleccionadas);
+                eliminarUltimoElemento(cantidadesSeleccionadas);
+                // Crear una nueva tabla con las listas actualizadas
+                JTable tabla = crearTabla(peliculasSeleccionadas, cantidadesSeleccionadas);
+                // Asignar el nuevo modelo de tabla al componente jTable1
+                vprin.jTable1.setModel(tabla.getModel());
+        }else if(this.vprin.jButton5 == ae.getSource()){
+            System.out.println("yo mando a la venta de renta");
+            VRenta vrenta = new VRenta();
+            vrenta.setVisible(true);
+            
         }
     }
     ///////METODOS///////////////////7
@@ -140,11 +154,12 @@ public class CPrincipal implements ActionListener{
 
         
         // Método para eliminar el último elemento de la lista
-        public void eliminarUltimoElemento(ArrayList<String> lista) {
+        public void eliminarUltimoElemento(ArrayList<?> lista) {
             if (!lista.isEmpty()) {
                 lista.remove(lista.size() - 1);
             }
         }
+
         
         
         public JTable crearTabla(ArrayList<String> peliculasSeleccionadas, ArrayList<Integer> cantidadesSeleccionadas) {
@@ -153,16 +168,17 @@ public class CPrincipal implements ActionListener{
             // Agregar las columnas fijas
             modeloTabla.addColumn("Título");
             modeloTabla.addColumn("Género");
+            modeloTabla.addColumn("Precio por unidad");
             modeloTabla.addColumn("Cantidad");
 
             // Llenar el modelo con las películas seleccionadas y la cantidad seleccionada
-                    System.out.println("Tamaño peliculas: "+peliculasSeleccionadas.size()+"Cantidades:"+cantidadesSeleccionadas.size());
+                    //System.out.println("Tamaño peliculas: "+peliculasSeleccionadas.size()+"Cantidades:"+cantidadesSeleccionadas.size());
             for (int i = 0; i < peliculasSeleccionadas.size(); i++) {
                 String peliculaSeleccionada = peliculasSeleccionadas.get(i);
                 int cantidadSeleccionada = cantidadesSeleccionadas.get(i);
                 Pelicula pelicula = crudpeli.obtenerInformacionPelicula(peliculaSeleccionada);
                 if (pelicula != null) {
-                    modeloTabla.addRow(new Object[]{pelicula.getTitulo(), pelicula.getGenero(), cantidadSeleccionada});
+                    modeloTabla.addRow(new Object[]{pelicula.getTitulo(), pelicula.getGenero(), pelicula.getPrecio(),cantidadSeleccionada});
                 }
             }
 
