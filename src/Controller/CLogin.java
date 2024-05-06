@@ -28,8 +28,6 @@ public class CLogin implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(this.vlg.jButton1 == ae.getSource()){
-            //String Id = vlg.jTextField1.getText();
-            //System.out.println("busco al cliente en la base de dato con el id que igreso es: "+Id);
             String id = vlg.jTextField1.getText();
             InsertarCliente insertc = new InsertarCliente();
             CRUDPelicula crpeli = new CRUDPelicula();
@@ -38,20 +36,21 @@ public class CLogin implements ActionListener{
                 boolean tieneMembresia = insertc.verificarMembresia(id);
                 VPrincipal vp = new VPrincipal(id);
                 vp.setVisible(true);
-                ArrayList<String> nombresPeliculas = crpeli.obtenerNombresPeliculas();
+                ArrayList<String> nombresPeliculas = crpeli.obtenerNombresPeliculas();//obtengo las peliculas y se las mando al combox 
                 for (String nombrePelicula : nombresPeliculas) {
                     vp.jComboBox1.addItem(nombrePelicula);
                 }
                 vp.jLabel2.setText(id);
                 // Actualizar el label dependiendo si tiene membresía o no
                 if (tieneMembresia) {
-                    vp.jLabel4.setText("Tiene membresía");
+                    vp.jLabel4.setText("ACTIVA");
                     vp.jLabel9.setText("tiene dereco a elegir 60 peliculas");
                     vp.jButton1.setEnabled(false);
                 } else {
-                    vp.jLabel4.setText("No tiene membresía");
-                    vp.jLabel9.setText("precio de cada pelicula es de $25");
+                    vp.jLabel4.setText("INACTIVA");
+                    vp.jLabel9.setText("precio de cada pelicula es de $5");
                 }
+                vlg.dispose();
             }else{
                 vlg.jLabel1.setText("USUARIO NO REGISTRADO");
             }
@@ -60,7 +59,7 @@ public class CLogin implements ActionListener{
             System.out.println("mando a la vista de crear cuenta");
             VRegistrarse vr = new VRegistrarse();
             vr.setVisible(true);
-            vlg.setVisible(false);
+            vlg.dispose();
         }
     }
     

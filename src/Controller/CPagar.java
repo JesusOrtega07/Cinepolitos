@@ -37,8 +37,6 @@ public class CPagar implements ActionListener{
         }else if(this.vpagar.jButton == ae.getSource()){
             System.out.println("yo regreso");
             vpagar.dispose();
-//            CRUDPelicula crudpeli = new CRUDPelicula();
-//            crudpeli.pagarCuenta(idUsuario);
         }
     }
     

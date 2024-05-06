@@ -8,12 +8,12 @@ package View;
  *
  * @author david_alcazar
  */
-public class VCartelera extends javax.swing.JFrame {
+public class VMapa extends javax.swing.JFrame {
 
     /**
-     * Creates new form VCartelera
+     * Creates new form VMapa
      */
-    public VCartelera() {
+    public VMapa() {
         initComponents();
     }
 
@@ -33,27 +33,25 @@ public class VCartelera extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(24, 35, 98));
-        jButton1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Regresar");
+        jButton1.setText("REGRESAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 190, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 150, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/david_alcazar/Escritorio/Imagenescinepolitos/Cartelera.png")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 700));
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/david_alcazar/Escritorio/Imagenescinepolitos/Mapa.png")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        VMenu mv = new VMenu();
-        mv.setVisible(true);
-        setVisible(false);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -73,26 +71,26 @@ public class VCartelera extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VMapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VMapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VMapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VCartelera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VMapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VCartelera().setVisible(true);
+                new VMapa().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

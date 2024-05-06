@@ -34,16 +34,13 @@ public class VPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jSpinner1 = new javax.swing.JSpinner();
@@ -53,67 +50,67 @@ public class VPrincipal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bienvenido : ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("AnjaliOldLipi", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 210, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 210, 50));
 
-        jLabel3.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("PELICULAS DISPONIBLES ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
-
+        jButton1.setBackground(new java.awt.Color(24, 35, 98));
+        jButton1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("SER PREMIUM");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 170, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 240, 40));
 
         jLabel4.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 230, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 230, 40));
 
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 160, -1));
+        jComboBox1.setBackground(new java.awt.Color(24, 35, 98));
+        jComboBox1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 170, 30));
 
         jLabel5.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 350, 30));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 270, 30));
 
         jLabel6.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 330, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 140, 30));
 
         jLabel7.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 330, 40));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 250, 30));
 
-        jLabel8.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("INFORMACION DE LA PELICULA");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 300, 40));
-
-        jLabel9.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("AnjaliOldLipi", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 330, 30));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 400, 30));
 
-        jButton2.setBackground(new java.awt.Color(12, 33, 153));
+        jButton2.setBackground(new java.awt.Color(24, 35, 98));
         jButton2.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("AGREGAR AL CARRITO");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 200, 40));
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 240, 40));
 
+        jSpinner1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 370, 60, 30));
+
+        jTable1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 13)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -125,27 +122,48 @@ public class VPrincipal extends javax.swing.JFrame {
 
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(24, 35, 98));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 480, 700, 180));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 660, 190));
 
-        jButton4.setBackground(new java.awt.Color(12, 33, 153));
+        jButton4.setBackground(new java.awt.Color(24, 35, 98));
         jButton4.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("ELIMINAR ULTIMA PELICULA");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, 40));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 240, 40));
 
+        jButton3.setBackground(new java.awt.Color(24, 35, 98));
+        jButton3.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("AGREGAR SALDO");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 170, 50));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 240, 40));
 
+        jButton5.setBackground(new java.awt.Color(24, 35, 98));
+        jButton5.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("VER LAS RENTAS");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, 270, 40));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 240, 40));
 
-        jButton6.setText("RENTAR LA PELICULAS DEL CARRITO");
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 270, 40));
+        jButton6.setBackground(new java.awt.Color(24, 35, 98));
+        jButton6.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("RENTAR LAS PELICULAS");
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 240, 40));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("/home/david_alcazar/Escritorio/Imagenescinepolitos/Tabla.png")); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1030, 780));
+        jButton7.setBackground(new java.awt.Color(24, 35, 98));
+        jButton7.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setText("CERRAR SECCION");
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 240, 40));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("/home/david_alcazar/Escritorio/Imagenescinepolitos/Menu.png")); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,6 +172,14 @@ public class VPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,16 +224,14 @@ public class VPrincipal extends javax.swing.JFrame {
     public javax.swing.JButton jButton4;
     public javax.swing.JButton jButton5;
     public javax.swing.JButton jButton6;
+    public javax.swing.JButton jButton7;
     public javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
-    public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JSpinner jSpinner1;

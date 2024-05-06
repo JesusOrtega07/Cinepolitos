@@ -8,6 +8,8 @@ package Model;
  *
  * @author chus
  */
+
+// no se uso
 public class PagoR {
     private String nomCliente;
     private int NoPago;

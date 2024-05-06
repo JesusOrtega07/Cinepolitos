@@ -43,12 +43,12 @@ public class VRegistrarse extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.setBackground(new java.awt.Color(12, 33, 153));
+        jTextField2.setBackground(new java.awt.Color(24, 35, 98));
         jTextField2.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 323, 200, 30));
 
-        jBguardar.setBackground(new java.awt.Color(12, 33, 153));
+        jBguardar.setBackground(new java.awt.Color(24, 35, 98));
         jBguardar.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jBguardar.setForeground(new java.awt.Color(255, 255, 255));
         jBguardar.setText("GUARDAR");
@@ -57,19 +57,19 @@ public class VRegistrarse extends javax.swing.JFrame {
                 jBguardarActionPerformed(evt);
             }
         });
-        getContentPane().add(jBguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 140, 50));
+        getContentPane().add(jBguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 140, 50));
 
-        jTextField3.setBackground(new java.awt.Color(12, 33, 153));
+        jTextField3.setBackground(new java.awt.Color(24, 35, 98));
         jTextField3.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 170, -1));
 
-        jTextField1.setBackground(new java.awt.Color(12, 33, 153));
+        jTextField1.setBackground(new java.awt.Color(24, 35, 98));
         jTextField1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 200, 30));
 
-        jTextField4.setBackground(new java.awt.Color(12, 33, 153));
+        jTextField4.setBackground(new java.awt.Color(24, 35, 98));
         jTextField4.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(255, 255, 255));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -79,11 +79,12 @@ public class VRegistrarse extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 133, 80, 30));
 
-        jTextField5.setBackground(new java.awt.Color(12, 33, 153));
+        jTextField5.setBackground(new java.awt.Color(24, 35, 98));
         jTextField5.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 50, -1));
 
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Liberation Sans", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, 230, 30));

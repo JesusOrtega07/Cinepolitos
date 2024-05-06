@@ -2,7 +2,9 @@
 package Controller;
 
 import View.VCartelera;
+import View.VCredito;
 import View.VLogin;
+import View.VMapa;
 import View.VMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +20,9 @@ public class CMenu implements ActionListener{
     public CMenu(VMenu vm) {
         this.vm = vm;
         this.vm.jButton1.addActionListener(this);
+        this.vm.jButton2.addActionListener(this);
         this.vm.jButton3.addActionListener(this);
+        this.vm.jButton4.addActionListener(this);
     }
     
 
@@ -32,8 +36,14 @@ public class CMenu implements ActionListener{
             System.out.println("yo abro la cartelera");
             VCartelera vc = new VCartelera();
             vc.setVisible(true);
-            
-            //vc.dispose();
+        }else if(this.vm.jButton2 == e.getSource()){
+            System.out.println("yo mando al mapa");
+            VMapa vmp = new VMapa();
+             vmp.setVisible(true);
+        }else if(this.vm.jButton4 == e.getSource()){
+            System.out.println("agradecimientos");
+            VCredito vcredito = new VCredito();
+            vcredito.setVisible(true);
         }
     }
     

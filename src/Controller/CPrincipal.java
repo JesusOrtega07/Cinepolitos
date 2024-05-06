@@ -4,6 +4,7 @@ package Controller;
 import Model.CRUDPelicula;
 import Model.InsertarCliente;
 import Model.Pelicula;
+import View.VMenu;
 import View.VPagar;
 import View.VPremiun;
 import View.VPrincipal;
@@ -31,8 +32,6 @@ public class CPrincipal implements ActionListener{
     ArrayList<Integer> cantidadesSeleccionadas ;
     private double costoTotal;
     String opc;
-    //DefaultTableModel modeloTabla;
-    //obtengo el id por medio del constructor
     
     public CPrincipal(VPrincipal vprin,String user) {
         this.vprin = vprin;
@@ -42,6 +41,7 @@ public class CPrincipal implements ActionListener{
         this.vprin.jButton4.addActionListener(this);
         this.vprin.jButton5.addActionListener(this);
         this.vprin.jButton6.addActionListener(this);
+        this.vprin.jButton7.addActionListener(this);
         this.user = user;
         this.crudpeli = new CRUDPelicula();
         this.cantidadesSeleccionadas = new ArrayList<>();
@@ -62,9 +62,9 @@ public class CPrincipal implements ActionListener{
                     // Establecer el valor del JSpinner en 0
                     vprin.jSpinner1.setValue(0);
                         // Imprimir los datos de la película
-                    vprin.jLabel5.setText("Título: " + pelicula.getTitulo());
-                    vprin.jLabel6.setText("Copias: " + pelicula.getCopias());
-                    vprin.jLabel7.setText("Género: " + pelicula.getGenero());
+                    vprin.jLabel5.setText("" + pelicula.getTitulo());
+                    vprin.jLabel6.setText("" + pelicula.getCopias());
+                    vprin.jLabel7.setText("" + pelicula.getGenero());
                 }
             }
         });
@@ -126,13 +126,8 @@ public class CPrincipal implements ActionListener{
                     JOptionPane.showMessageDialog(null, "El saldo ingresado no es válido", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Debes ingresar un saldo", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Debes ingresar un saldo", "Error", JOptionPane.ERROR_MESSAGE);
             }
-//            vpaga = new VPagar(user);
-//            vpaga.setVisible(true);
-//            int saldo = Integer.parseInt(this.vpaga.jTextField1.getText());
-//            crudpeli = new CRUDPelicula();
-//            crudpeli.depositarSaldo(user, saldo);
         }else if(this.vprin.jButton4 == ae.getSource()){
             System.out.println("yo elimino ");
             // Eliminar el último elemento de las listas
@@ -155,16 +150,34 @@ public class CPrincipal implements ActionListener{
             JTable tabla1 = crearTabla(peliculasSeleccionadas, cantidadesSeleccionadas);
             vprin.jTable1.setModel(tabla1.getModel());
             double costo = crudpeli.montoPagar(user);
-            vrenta.jLabel3.setText("USTED DEBE: "+costo);
+            InsertarCliente insertc = new InsertarCliente();
+            boolean tieneMembresia = insertc.verificarMembresia(user);
+            if(tieneMembresia){
+                vrenta.jLabel3.setText("$200");
+            }else{
+                vrenta.jLabel3.setText("$"+costo);
+            }
+            
             
         }else if(this.vprin.jButton6 == ae.getSource()){
-            System.out.println("yo rento");
-            for (String peliculaSeleccionada : peliculasSeleccionadas) {
+            System.out.println("Yo rento");
+            for (int i = 0; i < peliculasSeleccionadas.size(); i++) {
+                String peliculaSeleccionada = peliculasSeleccionadas.get(i);
                 int idPelicula = crudpeli.obtenerNombrePelicula(peliculaSeleccionada);
-                crudpeli.rentaPelicula(user, idPelicula);
+                int cantidadSeleccionada = cantidadesSeleccionadas.get(i);
+                for (int j = 0; j < cantidadSeleccionada; j++) {
+                    // Llamar al método rentarPelicula para cada película seleccionada
+                    crudpeli.rentaPelicula(user, idPelicula);
+                }
                 System.out.println("ID de " + peliculaSeleccionada + ": " + idPelicula);
             }
-
+        }else if(this.vprin.jButton7 == ae.getSource()){
+            System.out.println("yo cierro seccion");
+            peliculasSeleccionadas.clear();
+            cantidadesSeleccionadas.clear();
+            VMenu menu = new VMenu();
+            menu.setVisible(true);
+            vprin.dispose();
         }
     }
     ///////METODOS///////////////////7
@@ -205,8 +218,6 @@ public class CPrincipal implements ActionListener{
             }
         }
 
-        
-        
         public JTable crearTabla(ArrayList<String> peliculasSeleccionadas, ArrayList<Integer> cantidadesSeleccionadas) {
             DefaultTableModel modeloTabla = new DefaultTableModel();
             // Agregar las columnas fijas

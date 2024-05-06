@@ -51,8 +51,8 @@ public class CRegistro implements ActionListener{
                     vprin.jComboBox1.addItem(nombrePelicula);
                 }
                 vprin.jLabel2.setText(User);
-                vprin.jLabel4.setText("No tiene membresía");
-                vprin.jLabel9.setText("precio de cada pelicula es de $25");
+                vprin.jLabel4.setText("INACTIVA");
+                vprin.jLabel9.setText("precio de cada pelicula es de $5");
                 vr.setVisible(false);
             }
         }

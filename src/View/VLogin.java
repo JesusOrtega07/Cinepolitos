@@ -43,19 +43,19 @@ public class VLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(12, 33, 153));
+        jTextField1.setBackground(new java.awt.Color(24, 35, 98));
         jTextField1.setFont(new java.awt.Font("AnjaliOldLipi", 2, 24)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, 110, 40));
 
-        jButton1.setBackground(new java.awt.Color(12, 33, 153));
+        jButton1.setBackground(new java.awt.Color(24, 35, 98));
         jButton1.setFont(new java.awt.Font("AnjaliOldLipi", 2, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ingresar");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 130, 50));
 
-        jButton2.setBackground(new java.awt.Color(12, 33, 153));
+        jButton2.setBackground(new java.awt.Color(24, 35, 98));
         jButton2.setFont(new java.awt.Font("AnjaliOldLipi", 2, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Crear cuenta ");
@@ -65,6 +65,9 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 180, 50));
+
+        jLabel1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 190, 180, 40));
 
         jLabel4.setIcon(new javax.swing.ImageIcon("/home/david_alcazar/Escritorio/Imagenescinepolitos/login.png")); // NOI18N

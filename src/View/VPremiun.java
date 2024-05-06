@@ -29,36 +29,37 @@ public class VPremiun extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabelInicio = new javax.swing.JLabel();
         jLabelFinal = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("CONTRATO DE SER PREMIUM");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
-
+        jButton1.setBackground(new java.awt.Color(24, 35, 98));
+        jButton1.setFont(new java.awt.Font("AnjaliOldLipi", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("REGRESAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, 30));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 20, 20));
 
-        jCheckBox1.setText("acepto terminos y condiciones");
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
-        jPanel1.add(jLabelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 140, 40));
-        jPanel1.add(jLabelFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 160, 40));
+        jLabelInicio.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
+        jLabelInicio.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jLabelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 200, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 430));
+        jLabelFinal.setFont(new java.awt.Font("AnjaliOldLipi", 1, 18)); // NOI18N
+        jLabelFinal.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jLabelFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 200, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("/home/david_alcazar/Escritorio/Imagenescinepolitos/Contrato.png")); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,9 +107,8 @@ public class VPremiun extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
     public javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabelFinal;
     public javax.swing.JLabel jLabelInicio;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
